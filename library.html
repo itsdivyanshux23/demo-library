@@ -1,0 +1,74 @@
+<!-- index.html (Login Page with modern colorful interface) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>EduShelf - Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #74ebd5, #9face6);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    .card {
+      border: none;
+      border-radius: 1rem;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+      background: white;
+    }
+    .btn-primary {
+      background-color: #5a67d8;
+      border: none;
+    }
+    .btn-primary:hover {
+      background-color: #434190;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-5 col-lg-4">
+        <div class="card p-4">
+          <div class="text-center mb-4">
+  <img src="logo.png" alt="EduShelf Logo" style="width: 200px; height: auto; margin-bottom: 20px;">
+  <h2 class="text-primary">Welcome to <strong>EduShelf</strong></h2>
+</div>
+          <form id="loginForm">
+            <div class="mb-3">
+              <label for="email" class="form-label">Email address</label>
+              <input type="email" id="email" class="form-control" placeholder="Enter your email" required />
+            </div>
+            <div class="mb-3">
+              <label for="password" class="form-label">Access Password</label>
+              <input type="password" id="password" class="form-control" placeholder="Enter access password" required />
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Login</button>
+            <p id="error" class="text-danger mt-3 text-center"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const userPassword = "devraj0723";
+    document.getElementById("loginForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const email = document.getElementById("email").value;
+      const password = document.getElementById("password").value;
+      if (password === userPassword) {
+        localStorage.setItem("userEmail", email);
+        window.location.href = "home.html";
+      } else {
+        document.getElementById("error").innerText = "Incorrect password.";
+      }
+    });
+  </script>
+</body>
+</html>
